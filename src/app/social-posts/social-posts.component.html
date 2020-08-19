@@ -1,0 +1,15 @@
+<app-post-form
+  (submitted)="onSubmit($event)"
+  *ngIf="showForm === true"
+></app-post-form
+><app-header> </app-header>
+
+<ol>
+  <app-post
+    *ngFor="let post of posts; index as i"
+    [postReference]="post"
+    (deleted)="onDelete(i)"
+  ></app-post>
+</ol>
+
+<button *ngIf="showForm === false" (click)="toggleForm()">Show From</button>
